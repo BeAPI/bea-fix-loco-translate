@@ -1,0 +1,21 @@
+{
+	"name":"bea/bea-fix-locotranslate",
+	"description":"Improve Locotranslate's plugin behaviour.",
+	"keywords":[
+		"Locostranslate"
+	],
+	"homepage":"https://github.com/BeAPI/bea-fix-locotranslate",
+	"authors":[
+		{
+			"name":"Be API",
+			"email":"technique@beapi.fr",
+			"homepage":"https://beapi.fr/"
+		}
+	],
+	"type":"wordpress-muplugin",
+	"minimum-stability":"stable",
+	"license":"GPL-3.0+",
+	"require":{
+		"php":">=5.6.0"
+	}
+}
