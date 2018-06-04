@@ -14,7 +14,7 @@ This plugin fix 3 behaviour included by Loco Translate :
 
 # Requirements
 
-- [Loco Translate](https://fr.wordpress.org/plugins/loco-translate)
+- [Loco Translate](https://fr.wordpress.org/plugins/loco-translate) plugin
 
 # Installation
 
@@ -48,4 +48,4 @@ If you really like what we do or want to thank us for our quick work, feel free 
 
 ## License
 
-BEA - Media Analytics is licensed under the [GPLv3 or later](LICENSE.md).
+BEA - Fix Loco Translate is licensed under the [GPLv3 or later](LICENSE.md).
