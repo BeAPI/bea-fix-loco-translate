@@ -1,13 +1,45 @@
 <?php
+/*
+ Plugin Name: BEA - Fix Loco Translate
+ Version: 1.1.0
+ Plugin URI: https://github.com/BeAPI/bea-fix-loco-translate
+ Description: Improve Loco Translate's plugin behaviour.
+ Author: Be API Technical team
+ Author URI: https://beapi.fr
+ Contributors: Maxime Culea
+ ----
+ Copyright 2018 Be API Technical team (human@beapi.fr)
+ This program is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ */
+
+// don't load directly
+if ( ! defined( 'ABSPATH' ) ) {
+	die( '-1' );
+}
 
 /**
- * Manage to add mu plugins folders to be translated and fix rights when using `DISALLOW_FILE_MODS`.
+ * Improve Loco Translate :
+ * - Add mu-plugins folders to be translated with Loco Translate
+ * - Allow lang creation in Loco Translate despite `DISALLOW_FILE_MODS`
+ * - Don't cache Loco Translate plugins
  *
- * Class BEA_Fix_Locotranslate
+ * Class BEA_Fix_Loco_Translate
+ *
+ * @author Maxime CULEA
  *
  * Version 1.1.0
  */
-class BEA_Fix_Locotranslate {
+class BEA_Fix_Loco_Translate {
 	function __construct() {
 		add_filter( 'loco_plugins_data', [ $this, 'support_mu_plugins_folder' ] );
 		add_action( 'admin_head', [ $this, 'delete_useless_cache' ] );
@@ -45,7 +77,7 @@ class BEA_Fix_Locotranslate {
 	}
 
 	/**
-	 * Allow lang creation in locotranslate despite DISALLOW_FILE_MODS
+	 * Allow lang creation in Loco Translate despite DISALLOW_FILE_MODS
 	 *
 	 * @author Maxime CULEA
 	 */
@@ -76,4 +108,4 @@ class BEA_Fix_Locotranslate {
 	}
 }
 
-new BEA_Fix_Locotranslate();
+new BEA_Fix_Loco_Translate();

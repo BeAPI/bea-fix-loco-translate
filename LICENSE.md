@@ -1,4 +1,4 @@
-BEA - Fix Locotranslate / Improve Locotranslate's plugin behaviour.
+BEA - Fix Loco Translate / Improve Loco Translate's plugin behaviour.
 
 Copyright 2017-2018 Be API and contributors
 
@@ -19,11 +19,11 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 This program incorporates work covered by the following copyright and
 permission notices:
 
-  BEA - Fix Locotranslate / Improve Locotranslate's plugin behaviour.
+  BEA - Fix Loco Translate / Improve Loco Translate's plugin behaviour.
 
   Copyright 2017-2018 Be API and contributors
 
-  BEA - Fix Locotranslate is released under the GPL
+  BEA - Fix Loco Translate is released under the GPL
  
  
 ===============================================================================
@@ -706,6 +706,6 @@ Public License instead of this License.  But first, please read
 WRITTEN OFFER
 
 The source code for any program binaries or compressed scripts that are
-included with BEA - Fix Locotranslate can be freely obtained at the following URL:
+included with BEA - Fix Loco Translate can be freely obtained at the following URL:
 
-    https://github.com/BeAPI/bea-fix-locotranslate/
+    https://github.com/BeAPI/bea-fix-loco-translate/

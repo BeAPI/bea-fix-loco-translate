@@ -1,10 +1,10 @@
 {
-	"name":"bea/bea-fix-locotranslate",
-	"description":"Improve Locotranslate's plugin behaviour.",
+	"name":"bea/bea-fix-loco-translate",
+	"description":"Improve Loco Translate's plugin behaviour.",
 	"keywords":[
 		"Locostranslate"
 	],
-	"homepage":"https://github.com/BeAPI/bea-fix-locotranslate",
+	"homepage":"https://github.com/BeAPI/bea-fix-loco-translate",
 	"authors":[
 		{
 			"name":"Be API",

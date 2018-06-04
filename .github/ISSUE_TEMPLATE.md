@@ -11,7 +11,7 @@ Please note:
 #### Version information
 
 * Plugin version : 
-* Locotranslate version : 
+* Loco Translate version : 
 * PHP : 
 * WordPress : 
 
