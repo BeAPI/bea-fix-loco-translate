@@ -43,9 +43,9 @@ This plugin works only if the [Loco Translate](https://www.advancedcustomfields.
 
 # WordPress
 
-- Download and install using the built-in WordPress plugin installer.
+- Download and install using the built-in WordPress plugin installer or optionnaly, consider using it as mu-plugin.
 - Site activate in the "Plugins" area of the admin.
-- Nothing more
+- Nothing more.
 
 == Changelog ==
 
