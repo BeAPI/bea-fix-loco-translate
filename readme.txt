@@ -9,11 +9,11 @@ Stable tag: 1.1.0
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-fix-loco-translate/blob/master/LICENSE.md
 
-Improve Locotranslate's plugin behaviour.
+Improve Loco Translate's plugin behaviour.
 
 == Description ==
 
-Improve Locotranslate's plugin behaviour.
+Improve Loco Translate's plugin behaviour.
 
 ## How ?
 
