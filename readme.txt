@@ -5,7 +5,7 @@ Tags: Loco Translate, Loco Translate add-on, mu-plugin
 Requires at least: 4.6
 Requires php: 5.4
 Tested up to: 4.9.3
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-fix-loco-translate/blob/master/LICENSE.md
 
@@ -39,7 +39,7 @@ This plugin works only if the [Loco Translate](https://www.advancedcustomfields.
 
 - WordPress 4.6+
 - Tested up to 4.9.3.
-- PHP 5.6+
+- PHP 5.4+
 
 # WordPress
 
@@ -48,6 +48,9 @@ This plugin works only if the [Loco Translate](https://www.advancedcustomfields.
 - Nothing more.
 
 == Changelog ==
+
+= 1.1.1 - 4 Jun 2018 =
+- Decrease the php requirement to PHP5.4
 
 = 1.1.0 - 4 Jun 2018 =
 - WordPress plugin.
