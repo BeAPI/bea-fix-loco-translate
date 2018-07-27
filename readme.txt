@@ -3,7 +3,7 @@ Contributors: beapi, maximeculea
 Donate link: http://paypal.me/BeAPI
 Tags: Loco Translate, Loco Translate add-on, mu-plugin
 Requires at least: 4.6
-Requires php: 5.6
+Requires php: 5.4
 Tested up to: 4.9.3
 Stable tag: 1.1.0
 License: GPLv3 or later
