@@ -1,7 +1,7 @@
 <?php
 /*
  Plugin Name: BEA - Fix Loco Translate
- Version: 1.1.0
+ Version: 1.1.1
  Plugin URI: https://github.com/BeAPI/bea-fix-loco-translate
  Description: Improve Loco Translate's plugin behaviour.
  Author: Be API Technical team
