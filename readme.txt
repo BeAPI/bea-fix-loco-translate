@@ -1,55 +1,66 @@
-=== BEA - Fix Loco Translate ===
+=== BEA - Loco Translate Enhancements ===
 Contributors: beapi, maximeculea
 Donate link: http://paypal.me/BeAPI
 Tags: Loco Translate, Loco Translate add-on, mu-plugin
 Requires at least: 4.6
-Requires php: 5.4
-Tested up to: 4.9.3
-Stable tag: 1.1.1
+Requires php: 7.4
+Tested up to: 7.0.0
+Stable tag: 1.2.0
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-fix-loco-translate/blob/master/LICENSE.md
 
-Improve Loco Translate's plugin behaviour.
+Enhancements for Loco Translate.
 
 == Description ==
 
-Improve Loco Translate's plugin behaviour.
+Enhancements for Loco Translate.
 
-## How ?
+## How?
 
-This plugin fix 3 behaviour included by Loco Translate :
+This plugin provides 3 targeted enhancements for Loco Translate:
 
-- Add mu-plugins folders to be translated with Loco Translate
-- Allow lang creation in Loco Translate despite `DISALLOW_FILE_MODS`
-- Don't cache Loco Translate plugins
+- Include mu-plugins folders in translation sources.
+  This specifically targets folder-based mu-plugins, commonly loaded through bootstrap loaders such as `mu-require` or `wp-mu-loader`. The plugin extends source discovery so these mu-plugins can be translated with Loco Translate.
+- Allow language creation despite `DISALLOW_FILE_MODS`.
+  This plugin keeps language creation available for the Loco Translate context on environments where file modifications are restricted.
+- Avoid stale Loco Translate plugin cache data.
+  This plugin clears Loco plugin cache data to reduce outdated plugin entries during automated deployment workflows.
 
-## Who ?
+Tested with Loco Translate 2.8.4.
 
-Created by [Be API](https://beapi.fr), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
+## Who?
 
-This plugin is only maintained, which means we do not guarantee some free support. Consider reporting an [issue](https://github.com/BeAPI/bea-fix-loco-translate/issues) and be patient.
+Created and maintained by [Be API](https://beapi.fr).
 
-To facilitate the process of submitting an issue and quicker answer, we only use Github, so don't use WP.Org support, it will not be considered.
+This plugin is maintained, but free support is not guaranteed. Please report issues on [GitHub](https://github.com/BeAPI/bea-fix-loco-translate/issues).
+
+To streamline issue triage and responses, support requests are handled on GitHub.
 
 == Installation ==
 
-This plugin works only if the [Loco Translate](https://www.advancedcustomfields.com/) plugin is installed and activated.
+This plugin works only if the [Loco Translate](https://wordpress.org/plugins/loco-translate/) plugin is installed and activated.
 
 # Requirements
 
 - WordPress 4.6+
-- Tested up to 4.9.3.
-- PHP 5.4+
+- Tested up to 7.0.0.
+- Tested with Loco Translate 2.8.4.
+- PHP 7.4+
 
 # WordPress
 
-- Download and install using the built-in WordPress plugin installer or optionnaly, consider using it as mu-plugin.
-- Site activate in the "Plugins" area of the admin.
+- Download and install using the built-in WordPress plugin installer, or optionally use it as an mu-plugin.
+- Activate it in the "Plugins" area of the admin.
 - Nothing more.
 
 == Changelog ==
 
-= 1.1.1 - 4 Jun 2018 =
+= 1.2.0 - 1 Jun 2026 =
+- Update plugin wording to a more neutral and professional tone.
+- Mark as tested up to WordPress 7.0.0.
+- Document compatibility tested with Loco Translate 2.8.4.
+
+= 1.1.1 - 27 Jul 2018 =
 - Decrease the php requirement to PHP5.4
 
 = 1.1.0 - 4 Jun 2018 =
