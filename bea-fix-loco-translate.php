@@ -38,6 +38,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.2.0
  */
 class BEA_Fix_Loco_Translate {
+	/**
+	 * Constructor.
+	 */
 	public function __construct() {
 		add_filter( 'loco_plugins_data', array( $this, 'support_mu_plugins_folder' ) );
 		add_action( 'admin_head', array( $this, 'delete_useless_cache' ) );
