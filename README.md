@@ -1,51 +1,56 @@
 <a href="https://beapi.fr">![Be API Github Banner](.wordpress.org/banner-github.png)</a>
 
-# BEA - Fix Loco Translate
+# BEA - Loco Translate Enhancements
 
-Improve Loco Translate's plugin behaviour. 
+Enhancements for Loco Translate.
 
-# What ?
+# What?
 
-This plugin fix 3 behaviour included by Loco Translate :
+This plugin provides 3 targeted enhancements for Loco Translate:
 
-- Add mu-plugins folders to be translated with Loco Translate
-- Allow lang creation in Loco Translate despite `DISALLOW_FILE_MODS`
-- Don't cache Loco Translate plugins
+- Include mu-plugins folders in translation sources  
+  This specifically targets folder-based mu-plugins, which are commonly loaded through a bootstrap loader such as `mu-require` or `wp-mu-loader`. The plugin extends source discovery so these mu-plugins are correctly exposed to Loco Translate.
+- Allow language creation despite `DISALLOW_FILE_MODS`  
+  On hardened environments, file modifications can be restricted globally. This plugin keeps language pack creation flows working for the specific Loco Translate context where it is expected and safe.
+- Avoid stale Loco Translate plugin cache data  
+  Plugin metadata can become outdated in cache after deployments, removals, or structural changes. This plugin clears the Loco plugin cache at the right time to reduce stale entries during automated deployment workflows.
 
 # Requirements
 
-- This plugin works only if the [Loco Translate](https://www.advancedcustomfields.com/) plugin is installed and activated.
+- This plugin works only if the [Loco Translate](https://wordpress.org/plugins/loco-translate/) plugin is installed and activated.
+- Tested up to WordPress 7.0.0.
+- Tested with Loco Translate 2.8.4.
 
 # Installation
 
 ## WordPress
 
-- Download and install using the built-in WordPress plugin installer or optionnaly, consider using it as mu-plugin
-- Site activate in the "Plugins" area of the admin.
-- Nothing to do then !
+- Download and install using the built-in WordPress plugin installer, or optionally use it as an mu-plugin.
+- Activate it from the "Plugins" screen in wp-admin.
+- No extra setup is required.
 
 ## [Composer](http://composer.rarst.net/)
 
-- Add repository source : `{ "type": "vcs", "url": "https://github.com/BeAPI/bea-fix-loco-translate" }`.
-- Include `"bea/bea-fix-loco-translate": "dev-master"` in your composer file for last master's commits or a tag released.
-- Nothing to do then !
+- Add the repository source: `{ "type": "vcs", "url": "https://github.com/BeAPI/bea-fix-loco-translate" }`.
+- Include `"bea/bea-fix-loco-translate": "dev-master"` in your composer file to use the latest branch commits, or use a released tag.
+- No extra setup is required.
 
 ## Contributing
 
 Please refer to the [contributing guidelines](.github/CONTRIBUTING.md) to increase the chance of your pull request to be merged and/or receive the best support for your issue.
 
-### Issues & features request / proposal
+### Issues and feature requests
 
-If you identify any errors or have an idea for improving the plugin, feel free to open an [issue](../../issues/new) or [create a pull request](../../compare). Please provide as much info as needed in order to help us resolving / approve your request.
+If you identify an issue or have an idea for improvement, please open an [issue](../../issues/new) or [create a pull request](../../compare) with enough context to help review your request.
 
-# Who ?
+# Who?
 
-Created by [Be API](https://beapi.fr), the French WordPress leader agency since 2009. Based in Paris, we are more than 30 people and always [hiring](https://beapi.workable.com) some fun and talented guys. So we will be pleased to work with you.
+Created and maintained by [Be API](https://beapi.fr).
 
-This plugin is only maintained, which means we do not guarantee some free support. Consider reporting an [issue](#issues--features-request--proposal) and be patient. 
+This plugin is maintained, but free support is not guaranteed. Please report issues through [GitHub](#issues-and-feature-requests).
 
-If you really like what we do or want to thank us for our quick work, feel free to [donate](https://www.paypal.me/BeAPI) as much as you want / can, even 1€ is a great gift for buying cofee :)
+If you find this plugin useful, you can support the maintainers with a [donation](https://www.paypal.me/BeAPI).
 
 ## License
 
-BEA - Fix Loco Translate is licensed under the [GPLv3 or later](LICENSE.md).
+BEA - Loco Translate Enhancements is licensed under the [GPLv3 or later](LICENSE.md).

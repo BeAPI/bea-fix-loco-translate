@@ -1,14 +1,17 @@
 <?php
 /*
-Plugin Name: BEA - Fix Loco Translate
-Version: 1.1.1
+Plugin Name: BEA - Loco Translate Enhancements
+Version: 1.2.0
 Plugin URI: https://github.com/BeAPI/bea-fix-loco-translate
-Description: Improve Loco Translate's plugin behaviour.
-Author: Be API Technical team
+Description: Includes mu-plugins translation sources, allows language creation with DISALLOW_FILE_MODS, and prevents stale Loco plugin cache.
+Author: Be API
 Author URI: https://beapi.fr
 Contributors: Maxime Culea
+
 ----
-Copyright 2018 Be API Technical team (human@beapi.fr)
+
+Copyright 2018-2026 Be API (human@beapi.fr)
+
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2 of the License, or
@@ -22,39 +25,34 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
-// don't load directly
+// Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 }
 
 /**
- * Improve Loco Translate :
- * - Add mu-plugins folders to be translated with Loco Translate
- * - Allow lang creation in Loco Translate despite `DISALLOW_FILE_MODS`
- * - Don't cache Loco Translate plugins
- *
  * Class BEA_Fix_Loco_Translate
  *
  * @author Maxime CULEA
  *
- * Version 1.1.0
+ * @since 1.2.0
  */
 class BEA_Fix_Loco_Translate {
-	function __construct() {
+	public function __construct() {
 		add_filter( 'loco_plugins_data', array( $this, 'support_mu_plugins_folder' ) );
 		add_action( 'admin_head', array( $this, 'delete_useless_cache' ) );
 		add_action( 'plugins_loaded', array( $this, 'force_disallow_file_mods' ) );
 	}
 
 	/**
-	 * Manage to add mu plugins folders to be translated
+	 * Add mu-plugins folders to translation sources.
 	 *
 	 * @author Maxime CULEA
 	 */
-	function support_mu_plugins_folder( $plugins ) {
+	public function support_mu_plugins_folder( $plugins ) {
 		foreach ( get_plugins( '/../mu-plugins' ) as $plugin_file => $data ) {
 			if ( dirname( $plugin_file ) != '.' && dirname( $plugin_file ) != 'mu-loader' ) {
-				// skip files directly at root
+				// Skip files located directly in the mu-plugins root.
 				$data['basedir']         = loco_constant( 'WPMU_PLUGIN_DIR' );
 				$plugins[ $plugin_file ] = $data;
 			}
@@ -64,11 +62,11 @@ class BEA_Fix_Loco_Translate {
 	}
 
 	/**
-	 * Don't use cached loco plugins. If WP does't cache, it has a good reason ! How detect a deleted plugin ?
+	 * Remove Loco plugin cache to avoid outdated plugin entries.
 	 *
 	 * @author Maxime CULEA
 	 */
-	function delete_useless_cache() {
+	public function delete_useless_cache() {
 		if ( ! is_plugin_active( 'loco-translate/loco.php' ) ) {
 			return;
 		}
@@ -77,28 +75,28 @@ class BEA_Fix_Loco_Translate {
 	}
 
 	/**
-	 * Allow lang creation in Loco Translate despite DISALLOW_FILE_MODS
+	 * Allow language creation in Loco Translate when file mods are disabled.
 	 *
 	 * @author Maxime CULEA
 	 */
-	function force_disallow_file_mods() {
+	public function force_disallow_file_mods() {
 		if ( ! function_exists( 'loco_plugin_version' ) ) {
 			return;
 		}
 
 		if ( version_compare( loco_plugin_version(), '2.0.16', '>=' ) && function_exists( 'wp_is_file_mod_allowed' ) ) {
 			/**
-			 * WP 4.8+ & LOCO 2.0.16+
-			 * As only supported since 2.0.16 for LOCO
+			 * WP 4.8+ and Loco Translate 2.0.16+.
+			 * The dedicated file modification check is supported from Loco 2.0.16.
 			 *
 			 * @see: Loco_fs_FileWriter->disabled();
 			 *
-			 * @since Version 1.1.0
+			 * @since 1.1.0
 			 */
 			add_filter(
 				'file_mod_allowed',
 				function ( $value, $context ) {
-					if ( $context == 'download_language_pack' ) {
+					if ( 'download_language_pack' === $context ) {
 						return true;
 					}
 
@@ -108,9 +106,9 @@ class BEA_Fix_Loco_Translate {
 				2
 			);
 		} else {
-			/** WP 4.8- */
+			/** WP 4.8 and older fallback. */
 			define( 'LOCO_TEST', true );
-			add_filter( 'loco_constant_' . 'DISALLOW_FILE_MODS', '__return_false' );
+			add_filter( 'loco_constant_DISALLOW_FILE_MODS', '__return_false' );
 		}
 	}
 }
