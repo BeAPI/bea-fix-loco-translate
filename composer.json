@@ -1,7 +1,7 @@
 {
 	"name": "bea/bea-fix-loco-translate",
 	"description": "Compatibility improvements for Loco Translate.",
-	"license": "GPL-3.0+",
+	"license": "GPL-3.0-or-later",
 	"type": "wordpress-muplugin",
 	"keywords": [
 		"Locostranslate"
