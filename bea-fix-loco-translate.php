@@ -1,25 +1,25 @@
 <?php
 /*
- Plugin Name: BEA - Fix Loco Translate
- Version: 1.1.1
- Plugin URI: https://github.com/BeAPI/bea-fix-loco-translate
- Description: Improve Loco Translate's plugin behaviour.
- Author: Be API Technical team
- Author URI: https://beapi.fr
- Contributors: Maxime Culea
- ----
- Copyright 2018 Be API Technical team (human@beapi.fr)
- This program is free software; you can redistribute it and/or modify
- it under the terms of the GNU General Public License as published by
- the Free Software Foundation; either version 2 of the License, or
- (at your option) any later version.
- This program is distributed in the hope that it will be useful,
- but WITHOUT ANY WARRANTY; without even the implied warranty of
- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- GNU General Public License for more details.
- You should have received a copy of the GNU General Public License
- along with this program; if not, write to the Free Software
- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+Plugin Name: BEA - Fix Loco Translate
+Version: 1.1.1
+Plugin URI: https://github.com/BeAPI/bea-fix-loco-translate
+Description: Improve Loco Translate's plugin behaviour.
+Author: Be API Technical team
+Author URI: https://beapi.fr
+Contributors: Maxime Culea
+----
+Copyright 2018 Be API Technical team (human@beapi.fr)
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  */
 
 // don't load directly
@@ -41,9 +41,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class BEA_Fix_Loco_Translate {
 	function __construct() {
-		add_filter( 'loco_plugins_data', [ $this, 'support_mu_plugins_folder' ] );
-		add_action( 'admin_head', [ $this, 'delete_useless_cache' ] );
-		add_action( 'plugins_loaded', [ $this, 'force_disallow_file_mods' ] );
+		add_filter( 'loco_plugins_data', array( $this, 'support_mu_plugins_folder' ) );
+		add_action( 'admin_head', array( $this, 'delete_useless_cache' ) );
+		add_action( 'plugins_loaded', array( $this, 'force_disallow_file_mods' ) );
 	}
 
 	/**
@@ -86,20 +86,27 @@ class BEA_Fix_Loco_Translate {
 			return;
 		}
 
-		if ( '2.0.16' <= loco_plugin_version() && function_exists( 'wp_is_file_mod_allowed' ) ) {
+		if ( version_compare( loco_plugin_version(), '2.0.16', '>=' ) && function_exists( 'wp_is_file_mod_allowed' ) ) {
 			/**
 			 * WP 4.8+ & LOCO 2.0.16+
 			 * As only supported since 2.0.16 for LOCO
 			 *
+			 * @see: Loco_fs_FileWriter->disabled();
+			 *
 			 * @since Version 1.1.0
 			 */
-			add_filter( 'file_mod_allowed', function ( $value, $context ) {
-				if ( $context == 'download_language_pack' ) {
-					return true;
-				}
+			add_filter(
+				'file_mod_allowed',
+				function ( $value, $context ) {
+					if ( $context == 'download_language_pack' ) {
+						return true;
+					}
 
-				return $value;
-			}, 10, 2 );
+					return $value;
+				},
+				10,
+				2
+			);
 		} else {
 			/** WP 4.8- */
 			define( 'LOCO_TEST', true );
