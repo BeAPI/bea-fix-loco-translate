@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: BEA - Loco Translate Enhancements
-Version: 1.2.0
+Version: 1.2.1
 Plugin URI: https://github.com/BeAPI/bea-fix-loco-translate
 Description: Includes mu-plugins translation sources, allows language creation with DISALLOW_FILE_MODS, and prevents stale Loco plugin cache.
 Author: Be API

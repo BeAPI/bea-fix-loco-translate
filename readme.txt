@@ -5,7 +5,7 @@ Tags: Loco Translate, Loco Translate add-on, mu-plugin
 Requires at least: 4.6
 Requires php: 7.4
 Tested up to: 7.0.0
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv3 or later
 License URI: https://github.com/BeAPI/bea-fix-loco-translate/blob/master/LICENSE.md
 
@@ -54,6 +54,11 @@ This plugin works only if the [Loco Translate](https://wordpress.org/plugins/loc
 - Nothing more.
 
 == Changelog ==
+
+= 1.2.1 - 1 Jun 2026 =
+- Add GitHub Actions workflows for CI tests and WordPress.org deployment.
+- Enable manual workflow runs with workflow_dispatch and tag validation for releases.
+- Bump plugin version to 1.2.1.
 
 = 1.2.0 - 1 Jun 2026 =
 - Update plugin wording to a more neutral and professional tone.
